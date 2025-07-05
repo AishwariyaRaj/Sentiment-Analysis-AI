@@ -1,0 +1,5 @@
+# Make sure you have this structure:
+# - app.py
+# - templates/
+#   - index.html
+#   - result.html

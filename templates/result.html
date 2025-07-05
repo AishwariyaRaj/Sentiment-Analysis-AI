@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentiment Analysis Result</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+        }
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 30px auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .result-card {
+            margin-bottom: 30px;
+        }
+        .result-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .result-icon {
+            font-size: 2.5rem;
+            margin-right: 15px;
+        }
+        .result-title {
+            font-size: 1.8rem;
+            margin: 0;
+            color: #333;
+        }
+        .positive {
+            color: #10b981;
+        }
+        .negative {
+            color: #ef4444;
+        }
+        .text-content {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            border-left: 5px solid #ddd;
+        }
+        .sentiment-meter {
+            margin: 30px 0;
+        }
+        .meter-label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        .meter-bar {
+            height: 20px;
+            background-color: #e5e7eb;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .meter-fill {
+            height: 100%;
+            border-radius: 10px;
+            transition: width 1s ease-in-out;
+        }
+        .positive-fill {
+            background: linear-gradient(90deg, #10b981, #34d399);
+        }
+        .negative-fill {
+            background: linear-gradient(90deg, #f87171, #ef4444);
+        }
+        .score-details {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+            text-align: center;
+        }
+        .score-item {
+            flex: 1;
+            padding: 15px;
+            border-radius: 8px;
+            background-color: #f8f9fa;
+            margin: 0 10px;
+        }
+        .score-value {
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        .positive-score {
+            color: #10b981;
+        }
+        .negative-score {
+            color: #ef4444;
+        }
+        .neutral-score {
+            color: #6b7280;
+        }
+        .action-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        .btn {
+            padding: 12px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: white;
+        }
+        .btn-secondary {
+            background-color: #f1f5f9;
+            color: #333;
+        }
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Analysis Results</h1>
+    </div>
+    
+    <div class="container">
+        <div class="result-card">
+            <div class="result-header">
+                <div class="result-icon">
+                    {% if sentiment == 'Positive' %}
+                    😊
+                    {% else %}
+                    😞
+                    {% endif %}
+                </div>
+                <h2 class="result-title {% if sentiment == 'Positive' %}positive{% else %}negative{% endif %}">
+                    {{ sentiment }} Sentiment Detected
+                </h2>
+            </div>
+            
+            <div class="text-content">
+                "{{ text }}"
+            </div>
+            
+            <div class="sentiment-meter">
+                <div class="meter-label">
+                    <span>Sentiment Strength</span>
+                    <span>{{ percentage }}%</span>
+                </div>
+                <div class="meter-bar">
+                    <div class="meter-fill {% if sentiment == 'Positive' %}positive-fill{% else %}negative-fill{% endif %}" 
+                         style="width: {{ percentage }}%"></div>
+                </div>
+            </div>
+            
+            <div class="score-details">
+                <div class="score-item">
+                    <div>Positive</div>
+                    <div class="score-value positive-score">{{ pos_score }}%</div>
+                </div>
+                <div class="score-item">
+                    <div>Neutral</div>
+                    <div class="score-value neutral-score">{{ neu_score }}%</div>
+                </div>
+                <div class="score-item">
+                    <div>Negative</div>
+                    <div class="score-value negative-score">{{ neg_score }}%</div>
+                </div>
+            </div>
+            
+            <div class="action-buttons">
+                <a href="/analyze" class="btn btn-primary">Analyze Another Text</a>
+                <a href="/" class="btn btn-secondary">Back to Home</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

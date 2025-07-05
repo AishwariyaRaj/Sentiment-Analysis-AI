@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentiment Analysis Tool</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+        .hero {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+        }
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+        .btn {
+            display: inline-block;
+            background-color: #ffffff;
+            color: #6a11cb;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+        .features {
+            padding: 60px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .features h2 {
+            font-size: 2.2rem;
+            margin-bottom: 50px;
+            color: #333;
+        }
+        .feature-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+        .feature-card {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            width: 300px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #6a11cb;
+        }
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        .feature-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+        .cta {
+            background-color: #f1f5f9;
+            text-align: center;
+            padding: 60px 20px;
+        }
+        .cta h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        .cta p {
+            max-width: 600px;
+            margin: 0 auto 30px;
+            color: #555;
+            font-size: 1.1rem;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9rem;
+        }
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .feature-grid {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <h1>Sentiment Analysis Tool</h1>
+        <p>Analyze the sentiment of any text with our powerful AI-driven tool. Understand emotions, opinions, and attitudes in customer reviews, social media posts, and more.</p>
+        <a href="/analyze" class="btn">Get Started</a>
+    </section>
+
+    <section class="features">
+        <h2>How It Works</h2>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <div class="feature-icon">📝</div>
+                <h3>Enter Your Text</h3>
+                <p>Simply paste or type any text you want to analyze. Our tool works with product reviews, social media posts, customer feedback, and more.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">⚙️</div>
+                <h3>AI Analysis</h3>
+                <p>Our advanced AI model analyzes the text for emotional tone, identifying positive, negative, and neutral sentiments with high accuracy.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h3>Get Results</h3>
+                <p>Receive detailed sentiment analysis results instantly, with visual indicators showing the emotional tone of your text.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <h2>Ready to Analyze Your Text?</h2>
+        <p>Get instant insights into the sentiment behind any text. Perfect for businesses, researchers, and anyone interested in understanding emotional context.</p>
+        <a href="/analyze" class="btn">Start Analyzing Now</a>
+    </section>
+
+    <footer>
+        <p>Sentiment Analysis Tool © 2023 | A powerful text analysis solution</p>
+    </footer>
+</body>
+</html>
